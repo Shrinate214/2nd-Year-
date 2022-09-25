@@ -20,7 +20,7 @@ class Node{                                                           //CREATING
         prev=NULL;                                                    //initialising previous as NULL
     }
 };                                                                    // Semicolon needed after class defintion
-void append(Node* &head,string name,int age){                         //Function to insert data at ending of Linked List
+void insert(Node* &head,string name,int age){                         //Function to insert data at ending of Linked List
                                                                       //Creating a node pointer and storing address of head in temp
     Node*temp=head;
     Node*new_node=new Node(name,age);                                 //Creating a new node and storing name and age in it
@@ -33,24 +33,24 @@ void append(Node* &head,string name,int age){                         //Function
         new_node->prev=temp;
     }
 }
-void insert_at_head(Node*&head,string name,int age){                  //Function to insert data at starting point of linked list
+void insert_head(Node*&head,string name,int age){                     //Function to insert data at starting point of linked list
     Node*new_node=new Node(name,age);                                 //Creating a Node pointer and storing address of new node in that
     new_node->next=head;                                              //Inserting new node at head node
     head->prev=new_node;
     head=new_node;
 }
-void display_from_start(Node*head){                                  //Function to DISPLAY data from starting point of linked list
+void display_start(Node*head){                                        //Function to DISPLAY data from starting point of linked list
     Node*temp=head;
     while(temp!=NULL){cout<<"[Name:"<<temp->name<<" Age:"<<temp->age<<"]"<<"<==>";temp=temp->next;}
     cout<<endl;
 }
-void display_from_end(Node*head){                                    //Function to display data from end of Linked List
+void display_end(Node*head){                                          //Function to display data from end of Linked List
     Node*temp=head;
     while(temp->next!=NULL){temp=temp->next;}
     while(temp!=NULL){cout<<"[Name:"<<temp->name<<" Age:"<<temp->age<<"]"<<"<==>";temp=temp->prev;}
     cout<<endl;
 }
-void delete_ind(Node*&head,int i){                                   //function to delete any index (0,n-1) and excluding last element
+void index_delete(Node*&head,int i){                                  //function to delete any index (0,n-1) and excluding last element
     if(i==0){
         Node*temp=head;
         head=temp->next;
@@ -75,21 +75,21 @@ int main(){
     Node*head=NULL;                                                   //Initialisation of a double link list
 	int no_of_family_members;
 	cout<<"Enter Number Of Family Members:";cin>>no_of_family_members;//Taking number of family members as INPUT
-	for(int j=1;j<=no_of_family_members;j++){                        //loop created to add family members details in doubly linked list
+	for(int j=1;j<=no_of_family_members;j++){                    //loop created to add family members details in doubly linked list
 		string name;
 		int age;
 		cout<<"Enter Family Member "<<j<<" Name:";
 		cin>>name;
 		cout<<"Enter Family Member "<<j<<" Age:";
 		cin>>age;
-		append(head,name,age);                                       //to append data name and age in doubly linked list
+		insert(head,name,age);                               //to append data name and age in doubly linked list
 	}
 cout<<"-------------------------------------------------------------"<<endl;
-cout<<endl;                                                     // to leave a line between input and output
+cout<<endl;                                                          // to leave a line between input and output
     cout<<"Doubly Linked list create using my family members is:"<<endl;
-    display_from_start(head);
+    display_start(head);
 }
-Bonus: Try to find a way to link the family members' doubly-linked list based on their relationship. (Is it possible?)
+
 /********************************************************************************************************
                                             ***ASSIGNMENT OVER***
 *********************************************************************************************************/
