@@ -41,8 +41,8 @@ void printLinked_List(Node*&head){                               //Function to p
 int main(){                                                      //Main()
     Node*head=NULL;                                              // Initialize lists as empty
     insert_node(head,1);                                         //calling insert_node() function
-    insert_node(head,2);                                         //calling insert_node() function
-    insert_node(head,3);                                         //calling insert_node() function
+    insert_node(head,8);                                         //calling insert_node() function
+    insert_node(head,9);                                         //calling insert_node() function
     printLinked_List(head);                                      //calling  printLinked_List() function
 }
 /*
