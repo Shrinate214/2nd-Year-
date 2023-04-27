@@ -1,0 +1,49 @@
+#                                                                      Assignment 7
+#                                                                      Name- Akshat Shrinate
+#                                                                      SID-21105010
+#                                                                      Python program to find the minimum number of
+#                                                                      operations required to transform one string to other
+
+def MinSteps(A, B):                                                   # Function to find minimum number of operations required
+                                                                      # to transform A to B
+    m = len(A)
+    n = len(B)
+                                                                      # This part checks whether conversion is possible or not as length of characters should be same 
+    if n != m:
+        return -1
+ 
+    count = [0] * 256
+ 
+    for i in range(n):        # count characters in A
+        count[ord(B[i])] += 1                                         #Python ord() function returns the Unicode code from a given character.
+                                                                      #count of ord values which are same are increamented   
+    for i in range(n):        # subtract count for every char in B
+        count[ord(A[i])] -= 1
+    for i in range(256):    # Check if all counts become 0
+        if count[i]:
+            return -1
+ 
+                                                                      # This part calculates the number of operations required
+    res = 0
+    i = n-1
+    j = n-1   
+    while i >= 0:
+                                                                      # we search from the last part ad keep finding characters thAt are same and number of steps to get them
+                                                                      # to the right place if tehy arent 
+                                                                      # if there is a mismatch, then keep incrementing
+                                                                      # result 'res' until B[j] is not found in A[0..i]
+        while i>= 0 and A[i] != B[j]:
+            i -= 1
+            res += 1                                                  #Number of steps keeps increasing as i decreases
+ 
+        # if A[i] and B[j] match
+        if i >= 0:
+            i -= 1
+            j -= 1
+ 
+    return res
+ 
+# Driver program int main part
+A = "eajck"
+B = "jacke"
+print ("Minimum number of steps that need to be taken are " + str(MinSteps(A,B)))
