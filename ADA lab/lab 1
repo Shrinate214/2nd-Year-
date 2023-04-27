@@ -1,1 +1,33 @@
+# Name - Akshat shrinate 
+# SID-21105010
+Branch- ECE
+#Assignment 1
+
+#Problem 1
+
+def stairs(n):
+  if n==0:
+    return 1
+  if n<0:
+    return 0
+  else:
+    return (stairs(n-1)+stairs(n-2)+stairs(n-3))    
+n=int(input("Enter a number:"))
+stairs(n)
+
+#problem 2
+ N=int(input("Enter a number :"))
+ i = 1;
+while (True) :
+         if (i >= N): 
+             print("Patlu will place the brick")
+             break
+            
+         N -= i;
+         if (2*i > N): 
+            print("Motu will place the brick")
+            break
+         N -= 2*i;
+         i=i+1
+        
 
