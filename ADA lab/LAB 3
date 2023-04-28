@@ -1,0 +1,64 @@
+ASSIGNMENT 3 
+import java.util.Stack;
+
+public class Q1ada {
+
+    public static Stack<Integer> reverseStack(Stack<Integer> stk) {
+        revStack(stk);
+        return stk;
+    }
+
+    private static void revStack(Stack<Integer> stk) {
+        if (stk.empty()) {
+            return;
+        }
+        int x = stk.pop();
+        revStack(stk);
+        addToLast(stk, x);
+    }
+
+    private static void addToLast(Stack<Integer> stk, int x) {
+        if (stk.empty()) {
+            stk.push(x);
+            return;
+        }
+
+        int y = stk.pop();
+        addToLast(stk, x);
+        stk.push(y);
+    }
+
+
+    public static void main(String[] args) {
+        Stack<Integer> stk = new Stack<>();
+        stk.push(1);
+        stk.push(2);
+        stk.push(3);
+        stk.push(4);
+
+    }
+}
+
+#PROBLEM 2 
+public class Q2{
+
+    public static void oneByone(String s) {
+        // ArrayList<Integer> arr = new ArrayList<>();
+        int L=0, R=1;
+        while (L<R && R<=s.length()) {
+            String x = "";
+            if (L - 1 >= 0 ) {
+                x = s.substring(0, L);
+            }
+            System.out.println(x + s.substring(L, R).toUpperCase() + s.substring(R));
+            if (R == s.length()) {
+                L++;
+                R = L;
+            }
+            R++;
+        }
+    }
+    public static void main(String[] args) {
+        oneByone("abc");
+    }
+}
