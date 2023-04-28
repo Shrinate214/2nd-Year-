@@ -1,0 +1,61 @@
+#ASSIGNMENT 5
+AKSHAT SHRINATE
+21105010
+ECE
+
+def Mergesort_Squares(arr, n):
+                                                                                                   # first divide array into  negative and positive part
+    K = 0
+    for K in range(n):
+        if (arr[K] >= 0 ):
+            break
+                                                                             
+                                                                                                   # The two arrays are MERGE-sorted.Note that 
+                                                                                                   # first half will be done in reverse manner because of negative elements 
+                                                                                                   # i = K - 1 # Initial index of first array
+                                                                                                   # j = K # Initial index of second second
+                                                                                                   # ind = 0 # Initial index of temp array
+    temp = [0]*n                                                                                   # yo store sorted array
+    while (i >= 0 and j < n):
+         
+        if (arr[i] * arr[i] < arr[j] * arr[j]):
+            temp[ind] = arr[i] * arr[i]
+            i -= 1
+         
+        else:
+             
+            temp[ind] = arr[j] * arr[j]
+            j += 1
+             
+        ind += 1
+     
+                                                                                                  #Copy the remaining elements of first half 
+    while (i >= 0):
+         
+        temp[ind] = arr[i] * arr[i]
+        i -= 1
+        ind += 1
+         
+                                                                                                  #Copy the remaining elements of second half 
+    while (j < n):
+        temp[ind] = arr[j] * arr[j]
+        j += 1
+        ind += 1
+         
+                                                                                                  #copy 'temp' array into original array
+    for i in range(n):
+        arr[i] = temp[i]
+ 
+# Driver innt main code
+arr1 = [-6, -3, -1, 2, 4, 5 ]
+n = len(arr1)
+ 
+print("Before sort ")
+for i in range(n):
+    print(arr1[i], end =" " )
+     
+Mergesort_Squares(arr1, n)
+print("\n After Sort ")
+for i in range(n):
+    print(arr1[i], end =" " )
+ 
