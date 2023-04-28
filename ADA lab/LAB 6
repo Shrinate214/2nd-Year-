@@ -1,0 +1,13 @@
+public class Q1ada {
+    public static void findOccurrence(int[][] matrix, int k) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == k) {
+                    System.out.println("Match found at ("+i+","+j+")");
+                }
+                if (matrix[i][j] > k) {
+                    continue;
+                }
+            }
+        }
+    }
