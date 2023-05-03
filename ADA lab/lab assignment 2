@@ -1,15 +1,14 @@
-s = "zackcaz"
+s = "PackcaP"
 start = 0
 end = len(s)-1
 
 while (start< end) :
-           
-            if (s[start] != s[end]): 
+          if (s[start] != s[end]): 
                 print("false, not a palindrome")
                 break
-            start-start+1
-            end=end-1
-            if (start >= end):
-                print("true, it is palindrome")
-                break
-   
+          start=start+1
+          end=end-1
+if (start >= end):
+          print("true, it is palindrome")
+                
+     
