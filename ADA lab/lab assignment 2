@@ -11,4 +11,9 @@ while (start< end) :
 if (start >= end):
           print("true, it is palindrome")
                 
-     
+#problem 2 
+def power( num, exp):
+  if(exp==0):
+    return 1
+  return(num*(power(num,exp-1))) 
+power(7,3)
